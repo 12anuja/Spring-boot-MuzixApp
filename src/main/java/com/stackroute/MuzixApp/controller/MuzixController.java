@@ -1,6 +1,8 @@
 package com.stackroute.MuzixApp.controller;
 
 import com.stackroute.MuzixApp.domain.Muzix;
+import com.stackroute.MuzixApp.error.TrackAlreadyExistsException;
+import com.stackroute.MuzixApp.error.TrackNotFoundException;
 import com.stackroute.MuzixApp.service.MuzixSrevice;
 import io.swagger.annotations.*;
 import org.springframework.http.HttpStatus;
@@ -37,7 +39,7 @@ public class MuzixController
                 muzixSrevice.saveTrack(muzix);
                 responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
             }
-            catch (Exception ex)
+            catch (TrackAlreadyExistsException ex)
             {
                 responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
 
@@ -71,9 +73,9 @@ public class MuzixController
                 muzixSrevice.deleteTrack(trackId);
                 return new ResponseEntity<String>("Successfully deleted", HttpStatus.NO_CONTENT);
             }
-            catch (Exception e)
+            catch (TrackNotFoundException e)
             {
-                return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<String>("No such track exists", HttpStatus.NOT_FOUND);
             }
         }
 
@@ -113,19 +115,16 @@ public class MuzixController
                 List<Muzix> findName = muzixSrevice.findByName(trackName);
                // return new ResponseEntity<List<Muzix>>(findName,HttpStatus.OK);
                 muzixSrevice.saveTrack(muzix);
-
-               if(findName != null) {
-                    responseEntity = new ResponseEntity<String>("Found track", HttpStatus.FOUND);
-                }else
-                {
-                    responseEntity = new ResponseEntity<String>("No such track exists", HttpStatus.NOT_FOUND);
-                }
-
+                responseEntity = new ResponseEntity<List<Muzix>>(findName, HttpStatus.FOUND);
             }
-            catch (Exception ex)
+            catch (TrackNotFoundException ex)
             {
                 responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
             }
+          catch (Exception ex)
+          {
+              responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+          }
             return responseEntity;
         }
 }
