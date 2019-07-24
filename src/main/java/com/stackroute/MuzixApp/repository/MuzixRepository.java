@@ -2,6 +2,8 @@ package com.stackroute.MuzixApp.repository;
 
 import com.stackroute.MuzixApp.domain.Muzix;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,6 +13,9 @@ import java.util.List;
 public interface MuzixRepository extends JpaRepository<Muzix,Integer>
 {
 
-
+    //Query annotation will define SQL to execute for a repository method.
+    //the value attribute contains SQL or JPQL query to execute
+    @Query(value = "SELECT u FROM Muzix u WHERE u.trackName  = :name")
+    List<Muzix> findByName(String name);
 
 }

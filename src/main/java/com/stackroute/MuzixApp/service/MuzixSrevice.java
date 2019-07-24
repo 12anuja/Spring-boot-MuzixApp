@@ -1,6 +1,7 @@
 package com.stackroute.MuzixApp.service;
 
 import com.stackroute.MuzixApp.domain.Muzix;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public interface MuzixSrevice
     public void deleteTrack(int trackId);
 
     public Muzix updateTrack(Muzix muzix,int trackId);
+
+    List<Muzix> findByName(String trackName);
 
 
 }

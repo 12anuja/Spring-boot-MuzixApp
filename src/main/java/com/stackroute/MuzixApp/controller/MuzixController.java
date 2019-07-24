@@ -2,6 +2,7 @@ package com.stackroute.MuzixApp.controller;
 
 import com.stackroute.MuzixApp.domain.Muzix;
 import com.stackroute.MuzixApp.service.MuzixSrevice;
+import org.aspectj.weaver.patterns.HasMemberTypePatternForPerThisMatching;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -81,5 +82,29 @@ public class MuzixController
             }
             return responseEntity;
 
+        }
+
+        //Method to display a row based on its trackName
+        @GetMapping("/byName/{trackName}")
+        public ResponseEntity<?> findByName(@PathVariable String trackName, Muzix muzix)
+        {
+            ResponseEntity responseEntity;
+            try
+            {
+                List<Muzix> findName = muzixSrevice.findByName(trackName);
+                muzixSrevice.saveTrack(muzix);
+                if(findName != null) {
+                    responseEntity = new ResponseEntity<String>("Found track", HttpStatus.FOUND);
+                }else
+                {
+                    responseEntity = new ResponseEntity<String>("No such track exists", HttpStatus.NOT_FOUND);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+            }
+            return responseEntity;
         }
 }

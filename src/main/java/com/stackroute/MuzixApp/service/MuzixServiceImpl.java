@@ -4,6 +4,7 @@ package com.stackroute.MuzixApp.service;
 import com.stackroute.MuzixApp.domain.Muzix;
 import com.stackroute.MuzixApp.repository.MuzixRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,6 +51,14 @@ public class MuzixServiceImpl implements MuzixSrevice
             return muzixRepository.save(muzix);
         }
         return null;
+    }
+
+    @Override
+    public List<Muzix> findByName(String trackName)
+    {
+       List<Muzix> trackbyname= muzixRepository.findByName(trackName);
+       return trackbyname;
+
     }
 
 }
