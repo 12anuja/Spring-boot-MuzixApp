@@ -13,6 +13,9 @@ public class WebConfiguration
     public ServletRegistrationBean h2servletRegistration()
     {
         ServletRegistrationBean servletRegistrationBean=new ServletRegistrationBean(new WebServlet());
+
+        //to use h2 console : http:localhost:8080/console
+        //enter db username nad password and CRUD operations will execute using RUN command
         servletRegistrationBean.addUrlMappings("/console/*");
         return servletRegistrationBean;
     }
