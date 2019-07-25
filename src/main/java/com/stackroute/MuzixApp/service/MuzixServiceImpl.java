@@ -30,13 +30,13 @@ public class MuzixServiceImpl implements MuzixSrevice
     public void saveTrack(Muzix muzix)throws TrackAlreadyExistsException {
         if(muzixRepository.existsById(muzix.getTrackId()))
         {
-            throw new TrackAlreadyExistsException("Track is already inserted");
+            throw new TrackAlreadyExistsException();
         }
 
         Muzix savedUser = muzixRepository.save(muzix);
         if(savedUser == null)
         {
-            throw new TrackAlreadyExistsException("Track has null values");
+            throw new TrackAlreadyExistsException();
         }
     }
 
@@ -54,7 +54,7 @@ public class MuzixServiceImpl implements MuzixSrevice
         }
         else
         {
-            throw new TrackNotFoundException("No such track exists");
+            throw new TrackNotFoundException();
         }
     }
 
@@ -75,7 +75,7 @@ public class MuzixServiceImpl implements MuzixSrevice
         List<Muzix> muzix = muzixRepository.findByName(trackName);
         if(muzix.isEmpty())
         {
-            throw new TrackNotFoundException("No such track exists");
+            throw new TrackNotFoundException();
         }
 
        return muzix;

@@ -26,6 +26,8 @@ public class MuzixController
             this.muzixSrevice=muzixSrevice;
         }
 
+        ExceptionController exceptionController;
+
 
         //Method to save a row in database
         @ApiOperation(value = "Add a Muzix track")
@@ -41,7 +43,7 @@ public class MuzixController
             }
             catch (TrackAlreadyExistsException ex)
             {
-                responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+                responseEntity=exceptionController.exception1();
 
             }
             return responseEntity;
@@ -119,7 +121,7 @@ public class MuzixController
             }
             catch (TrackNotFoundException ex)
             {
-                responseEntity=new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
+                responseEntity=exceptionController.exception2();
             }
           catch (Exception ex)
           {

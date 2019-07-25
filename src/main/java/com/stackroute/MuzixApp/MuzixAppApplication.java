@@ -13,7 +13,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @SpringBootApplication
 
 //Implements CommandLineRunner and extends SpringBootServerInitializer
-public class MuzixAppApplication extends SpringBootServletInitializer implements CommandLineRunner
+public class MuzixAppApplication //extends SpringBootServletInitializer implements CommandLineRunner
 {
 
 
@@ -28,6 +28,8 @@ public class MuzixAppApplication extends SpringBootServletInitializer implements
 	/* Command line runners are a useful functionality to execute
 	the various types of code that only have to be run once, right after application startup
 	 */
+
+	/*
 
 	MuzixSrevice muzixSrevice;
 
@@ -54,4 +56,6 @@ public class MuzixAppApplication extends SpringBootServletInitializer implements
 				ex.printStackTrace();
 			}
 		}
+
+	 */
 }

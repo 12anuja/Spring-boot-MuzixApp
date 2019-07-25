@@ -2,6 +2,7 @@ package com.stackroute.MuzixApp.error;
 
 public class TrackNotFoundException extends Exception
 {
+    /*
     private String message;
 
     public TrackNotFoundException()
@@ -14,4 +15,6 @@ public class TrackNotFoundException extends Exception
         super(message);
         this.message=message;
     }
+
+     */
 }

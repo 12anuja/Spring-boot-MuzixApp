@@ -15,9 +15,9 @@ import javax.persistence.Id;
 //Marked to create getter/setter as per requirements
 @Data
 //Marked to create a no argumented constructor for the class
-@NoArgsConstructor
+//@NoArgsConstructor
 //Marked to create a parameterized constructor for the class
-@AllArgsConstructor
+//@AllArgsConstructor
 @ApiModel(description = "All details about the Muzix tracks")
 public class Muzix
 {
@@ -38,4 +38,30 @@ public class Muzix
         this.comment=s2;
     }
 
+    public Muzix() {
+    }
+
+    public int getTrackId() {
+        return trackId;
+    }
+
+    public void setTrackId(int trackId) {
+        this.trackId = trackId;
+    }
+
+    public String getTrackName() {
+        return trackName;
+    }
+
+    public void setTrackName(String trackName) {
+        this.trackName = trackName;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }

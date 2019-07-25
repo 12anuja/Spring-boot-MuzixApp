@@ -2,6 +2,7 @@ package com.stackroute.MuzixApp.error;
 
 public class TrackAlreadyExistsException extends Exception
 {
+    /*
     private String message;
 
     public TrackAlreadyExistsException()
@@ -13,4 +14,6 @@ public class TrackAlreadyExistsException extends Exception
         super(message);
         this.message = message;
     }
+
+     */
 }
