@@ -1,14 +1,44 @@
 package com.stackroute.MuzixApp.config;
 
-import org.apache.catalina.servlets.WebdavServlet;
+import com.stackroute.MuzixApp.domain.Muzix;
+import com.stackroute.MuzixApp.error.TrackAlreadyExistsException;
+import com.stackroute.MuzixApp.service.MuzixSrevice;
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
 
 @Configuration
 public class WebConfiguration
 {
+    MuzixSrevice muzixSrevice;
+
+    public WebConfiguration(MuzixSrevice muzixSrevice)
+    {
+        this.muzixSrevice=muzixSrevice;
+    }
+
+    //Using ContextRefreshedEvent
+    /*
+    @EventListener
+    public void seedData(ContextRefreshedEvent contextRefreshedEvent)
+    {
+        try
+        {
+            muzixSrevice.saveTrack(new Muzix(1,"One call away","local"));
+            muzixSrevice.saveTrack(new Muzix(3,"One direction","central"));
+        }
+        catch (TrackAlreadyExistsException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+     */
+
+
     @Bean
     public ServletRegistrationBean h2servletRegistration()
     {

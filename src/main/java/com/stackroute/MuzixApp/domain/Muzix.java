@@ -31,5 +31,11 @@ public class Muzix
     @ApiModelProperty(notes = "The Muzix track comment")
     private String comment;
 
+    public Muzix(int i,String s1,String s2)
+    {
+        this.trackId=i;
+        this.trackName=s1;
+        this.comment=s2;
+    }
 
 }
