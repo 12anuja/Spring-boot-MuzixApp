@@ -27,7 +27,7 @@ c)by using Environment
 Environment.html)
 9) Add @Lombok
 (https://drive.google.com/file/d/1QQpEQZbDD9pmW2qrhYsx5N9XYQ5bJ5dM/view)
-10) Music app using mongoDB database to perform all CRUD operations 
+10) Music app using mongoDB database to perform all CRUD operations and test cases
 11)Music app to access info of Last.fm database and fetch tracks info with 
   http://localhost:8080/api/v1/music 
   along with test cases
