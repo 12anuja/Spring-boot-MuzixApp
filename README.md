@@ -30,3 +30,4 @@ Environment.html)
 10) Music app using mongoDB database to perform all CRUD operations 
 11)Music app to access info of Last.fm database and fetch tracks info with 
   http://localhost:8080/api/v1/music 
+  along with test cases
