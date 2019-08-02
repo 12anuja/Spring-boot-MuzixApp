@@ -5,6 +5,7 @@ import com.stackroute.MuzixApp.error.TrackAlreadyExistsException;
 import com.stackroute.MuzixApp.error.TrackNotFoundException;
 import com.stackroute.MuzixApp.service.MuzixSrevice;
 import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,15 @@ public class MuzixController
         }
 
         ExceptionController exceptionController;
+
+
+    @GetMapping(value = "/get/top")
+    public ResponseEntity<String> getTopTracks(@ApiParam(value = "Muzix object stored in database table", required = true)
+                                              Muzix muzix)
+    {
+        return new ResponseEntity<String>(muzixSrevice.getTopTracks().toString(), HttpStatus.OK);
+    }
+
 
 
         //Method to save a row in database

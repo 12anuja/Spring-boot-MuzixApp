@@ -5,9 +5,11 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.lang.annotation.Documented;
 
 
 //Marked as a table in database with name same as class name
@@ -19,6 +21,10 @@ import javax.persistence.Id;
 //Marked to create a parameterized constructor for the class
 //@AllArgsConstructor
 @ApiModel(description = "All details about the Muzix tracks")
+
+
+//For using MONGODB
+@Document(value = "Muzix")
 public class Muzix
 {
 

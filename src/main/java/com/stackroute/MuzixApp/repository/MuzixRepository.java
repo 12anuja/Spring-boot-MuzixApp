@@ -3,14 +3,14 @@ package com.stackroute.MuzixApp.repository;
 import com.stackroute.MuzixApp.domain.Muzix;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 //An interface which is marked as repository which means it handles updation, deletion etc. database operations
 @Repository
-public interface MuzixRepository extends JpaRepository<Muzix,Integer>
+public interface MuzixRepository extends MongoRepository<Muzix,Integer>
 {
 
     //Query annotation will define SQL to execute for a repository method.

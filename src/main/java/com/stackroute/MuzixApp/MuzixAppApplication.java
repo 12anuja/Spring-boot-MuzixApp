@@ -2,6 +2,7 @@ package com.stackroute.MuzixApp;
 
 import com.stackroute.MuzixApp.domain.Muzix;
 import com.stackroute.MuzixApp.error.TrackAlreadyExistsException;
+import com.stackroute.MuzixApp.repository.MuzixRepository;
 import com.stackroute.MuzixApp.service.MuzixSrevice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -9,9 +10,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-
+@EnableMongoRepositories(basePackageClasses = MuzixRepository.class)
 //Implements CommandLineRunner and extends SpringBootServerInitializer
 public class MuzixAppApplication //extends SpringBootServletInitializer implements CommandLineRunner
 {
