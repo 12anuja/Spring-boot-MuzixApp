@@ -72,7 +72,7 @@ public class MuzixServiceTest
 //    }
 
     @Test
-    public void getAllUser(){
+    public void testgetAllUserSuccess(){
 
         muzixRepository.save(muzix);
         //stubbing the mock to return specific data
