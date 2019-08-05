@@ -60,7 +60,7 @@ public class MuzixControllerTest
         }
 
         @Test
-        public void saveTrack() throws Exception {
+        public void saveTrackSuccess() throws Exception {
             when(muzixSrevice.saveTrack(any())).thenReturn(muzix);
             mockMvc.perform(MockMvcRequestBuilders.post("/api/v1/save")
                     .contentType(MediaType.APPLICATION_JSON).content(asJsonString(muzix)))
@@ -79,7 +79,7 @@ public class MuzixControllerTest
 //        }
 
         @Test
-        public void getAllUser() throws Exception {
+        public void getAllUserSuccess() throws Exception {
             when(muzixSrevice.getAllTrack()).thenReturn(list);
             mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/get")
                     .contentType(MediaType.APPLICATION_JSON).content(asJsonString(muzix)))
