@@ -58,6 +58,9 @@ local.properties
 *.ipr
 *.ids
 *.orig
+mvnw
+mvnw.cmd
+
 
 ######################
 # Visual Studio Code
