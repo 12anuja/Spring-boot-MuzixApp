@@ -39,7 +39,7 @@ public class MuzixRepositoryTest
 
 
     @Test
-    public void testSavetrack(){
+    public void testSaveTrackSuccess(){
         muzixRepository.save(muzix);
         Muzix fetchUser = muzixRepository.findById(muzix.getTrackId()).get();
         Assert.assertEquals(101,fetchUser.getTrackId());
@@ -57,7 +57,7 @@ public class MuzixRepositoryTest
     }
 
     @Test
-    public void testGetAllUser(){
+    public void testGetAllUserSuccess(){
 
 
         Muzix m1 = new Muzix(67,"Treat You Better","Shawn Mendes");
