@@ -92,11 +92,12 @@ public class MuzixServiceImpl implements MuzixSrevice
     }
 
     @Override
-    public boolean deleteTrack(int trackId)throws TrackNotFoundException
+    public Muzix deleteTrack(int trackId)throws TrackNotFoundException
     {
         if(muzixRepository.existsById(trackId)) {
+            Muzix muzix = muzixRepository.save(muzix);
             muzixRepository.deleteById(trackId);
-            return true;
+            return muzix;
         }
         else
         {
