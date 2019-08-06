@@ -16,7 +16,7 @@ public interface MuzixSrevice
 
     public List<Muzix> getAllTrack();
 
-    public boolean deleteTrack(int trackId)throws TrackNotFoundException;
+    public Muzix deleteTrack(int trackId)throws TrackNotFoundException;
 
     public Muzix updateTrack(Muzix muzix,int trackId);
 
